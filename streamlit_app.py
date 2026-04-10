@@ -1,5 +1,3 @@
-# streamlit_app.py
-
 import streamlit as st
 import requests
 
@@ -7,9 +5,8 @@ API_URL = "http://127.0.0.1:8000/predict"
 
 st.set_page_config(page_title="Expense Classifier")
 
-st.title("💰 Expense Account Classifier")
+st.title("Expense Account Classifier")
 
-# ---- inputs ----
 vendor = st.text_input("Vendor ID", "lL1pcuEf3q6ufBVg2R75")
 name = st.text_input("Item Name", "Slack subscription")
 desc = st.text_input("Description", "Slack monthly subscription")
