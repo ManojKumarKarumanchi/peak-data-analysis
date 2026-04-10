@@ -42,7 +42,7 @@ peak-data-analysis/                       # Main implementation directory
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.12 or higher
 - pip package manager
 - (Optional) Virtual environment tool
 
