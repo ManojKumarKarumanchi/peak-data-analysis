@@ -1,5 +1,3 @@
-# api.py
-
 import numpy as np
 import joblib
 
@@ -7,7 +5,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from scipy.sparse import hstack, csr_matrix
 
-# ---- load model artifacts ----
 MODEL_DIR = "models"
 
 clf = joblib.load(f"{MODEL_DIR}/expense_classifier.pkl")
@@ -17,19 +14,14 @@ ohe = joblib.load(f"{MODEL_DIR}/ohe_vendor.pkl")
 scaler = joblib.load(f"{MODEL_DIR}/amount_scaler.pkl")
 le = joblib.load(f"{MODEL_DIR}/label_encoder.pkl")
 
-# ---- app ----
 app = FastAPI(title="Expense Classifier API")
 
-
-# ---- request schema ----
 class Request(BaseModel):
     vendorId: str
     itemName: str
     itemDescription: str
     itemTotalAmount: float
 
-
-# ---- feature pipeline ----
 def build_features(data):
     name = data["itemName"].lower().strip()
     desc = data["itemDescription"].lower().strip()
@@ -46,11 +38,8 @@ def build_features(data):
 
     return hstack([X_word, X_char, X_vendor, X_amt])
 
-
-# ---- prediction endpoint ----
 @app.post("/predict")
 def predict(req: Request):
     X = build_features(req.dict())
     pred = clf.predict(X)[0]
-
     return {"accountName": le.inverse_transform([pred])[0]}
