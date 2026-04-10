@@ -191,15 +191,6 @@ streamlit run streamlit_app.py
 
 **Total Features:** 13,576 dimensions (sparse matrix)
 
-### Performance Metrics
-
-| Metric | Train | Test |
-|--------|-------|------|
-| Accuracy | - | **91.60%** |
-| F1 Weighted | - | 91.75% |
-| F1 Macro | - | 77.35% |
-| Error Rate | - | 8.40% |
-
 ### Handling Class Imbalance
 
 - **Imbalance Ratio:** 1179:1 (largest to smallest class)
