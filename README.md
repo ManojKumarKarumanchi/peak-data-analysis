@@ -113,13 +113,7 @@ jupyter notebook eda.ipynb
 
 ### Option 3: Run the API Service
 
-**Important:** Before running the API, update the model path in `api.py`:
-
-```python
-# Change line 11 in api.py from:
-MODEL_DIR = "app/models"
-
-# To:
+```
 MODEL_DIR = "models"
 ```
 
